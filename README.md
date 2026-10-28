@@ -78,7 +78,24 @@ public/resume/Hongyu-Xu-Resume.pdf
 
 ## GitHub Pages 部署
 
-部署工作流为 [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)。当前交付提供部署配置；只有代码推送到你的真实 GitHub 仓库并完成 Pages 设置后才会上线。
+本站使用 GitHub Pages 的免费地址，无需购买独立域名：
+
+- 网站：[https://raidriarxu.github.io/](https://raidriarxu.github.io/)
+- 源码：[RaidriarXu/raidriarxu.github.io](https://github.com/RaidriarXu/raidriarxu.github.io)
+- 部署记录：[GitHub Actions](https://github.com/RaidriarXu/raidriarxu.github.io/actions)
+
+部署工作流为 [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)，仓库已启用 GitHub Actions 作为 Pages 发布来源。以后修改本站内容或简历后，提交并推送到 `main` 即会自动检查、构建和部署：
+
+```powershell
+git status
+git add src public README.md
+git commit -m "Update portfolio content"
+git push
+```
+
+只暂存本次确实修改、准备公开的文件；其他配置或脚本有变更时，按需加入暂存。等待 Actions 的 build 和 deploy 都成功后，再检查线上效果。
+
+如果以后迁移到其他仓库，设置步骤如下：
 
 1. 创建或选择真实 GitHub 仓库，将本站源码和 `package-lock.json` 推送到 `main`。不要提交 `node_modules/`、`.next/`、`out/` 或私密原始素材。
 2. 在仓库 **Settings → Pages → Build and deployment** 中选择 **GitHub Actions**。
@@ -140,6 +157,5 @@ npm run build
 - 可公开的 Tangerine 产品截图、经批准的脱敏截图或明确标注的演示数据，以及可分享的演示视频链接。
 - 如需进一步丰富项目叙述，可补充可公开的交付/使用记录和具体技术难点说明；只有确认过的内容才写入网页。
 - CONE Lab 可公开的处理流程图或研究可视化，以及后续新增且确实验证过的结果。
-- 目标 GitHub 仓库和可选的自定义域名，用于真正发布。
 
 最新简历和联系方式已作为本轮材料提供，不在缺失清单中。原始合同、凭据、客户数据和未经批准的项目文件不应放入 `public/`；该目录内的文件都会进入可下载的静态站点。
